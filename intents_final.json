@@ -1,0 +1,905 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": [
+        "Hi",
+        "How are you?",
+        "Is anyone there?",
+        "Hello",
+        "Good day",
+        "What's up",
+        "how are ya",
+        "heyy",
+        "whatsup",
+        "??? ??? ??"
+      ],
+      "responses": [
+        "Hello!",
+        "Good to see you again!",
+        "Hi there, how can I help?"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "goodbye",
+      "patterns": [
+        "cya",
+        "see you",
+        "bye bye",
+        "See you later",
+        "Goodbye",
+        "I am Leaving",
+        "Bye",
+        "Have a Good day",
+        "talk to you later",
+        "ttyl",
+        "i got to go",
+        "gtg"
+      ],
+      "responses": [
+        "Sad to see you go :(",
+        "Talk to you later",
+        "Goodbye!",
+        "Come back soon"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "creator",
+      "patterns": [
+        "what is the name of your developers",
+        "what is the name of your creators",
+        "what is the name of the developers",
+        "what is the name of the creators",
+        "who created you",
+        "your developers",
+        "your creators",
+        "who are your developers",
+        "developers",
+        "you are made by",
+        "you are made by whom",
+        "who created you",
+        "who create you",
+        "creators",
+        "who made you",
+        "who designed you"
+      ],
+      "responses": [
+        "College students"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "name",
+      "patterns": [
+        "name",
+        "your name",
+        "do you have a name",
+        "what are you called",
+        "what is your name",
+        "what should I call you",
+        "whats your name?",
+        "what are you",
+        "who are you",
+        "who is this",
+        "what am i chatting to",
+        "who am i taking to",
+        "what are you"
+      ],
+      "responses": [
+        "You can call me Mind Reader.",
+        "I'm Mind Reader",
+        "I am a Chatbot.",
+        "I am your helper"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "hours",
+      "patterns": [
+        "timing of college",
+        "what is college timing",
+        "working days",
+        "when are you guys open",
+        "what are your hours",
+        "hours of operation",
+        "when is the college open",
+        "college timing",
+        "what about college timing",
+        "is college open on saturday",
+        "tell something about college timing",
+        "what is the college  hours",
+        "when should i come to college",
+        "when should i attend college",
+        "what is my college time",
+        "college timing",
+        "timing college"
+      ],
+      "responses": [
+        "College is open 8am-5pm Monday-Saturday!"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "number",
+      "patterns": [
+        "more info",
+        "contact info",
+        "how to contact college",
+        "college telephone number",
+        "college number",
+        "What is your contact no",
+        "Contact number?",
+        "how to call you",
+        "College phone no?",
+        "how can i contact you",
+        "Can i get your phone number",
+        "how can i call you",
+        "phone number",
+        "phone no",
+        "call"
+      ],
+      "responses": [
+        "You can contact at: NUMBER"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "course",
+      "patterns": [
+        "list of courses",
+        "list of courses offered",
+        "list of courses offered in",
+        "what are the courses offered in your college?",
+        "courses?",
+        "courses offered",
+        "courses offered in (your univrsity(UNI) name)",
+        "courses you offer",
+        "branches?",
+        "courses available at UNI?",
+        "branches available at your college?",
+        "what are the courses in UNI?",
+        "what are branches in UNI?",
+        "what are courses in UNI?",
+        "branches available in UNI?",
+        "can you tell me the courses available in UNI?",
+        "can you tell me the branches available in UNI?",
+        "computer engineering?",
+        "computer",
+        "Computer engineering?",
+        "it",
+        "IT",
+        "Information Technology",
+        "AI/Ml",
+        "Mechanical engineering",
+        "Chemical engineering",
+        "Civil engineering"
+      ],
+      "responses": [
+        "Our university offers Information Technology, computer Engineering, Mechanical engineering,Chemical engineering, Civil engineering and extc Engineering."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "fees",
+      "patterns": [
+        "information about fee",
+        "information on fee",
+        "tell me the fee",
+        "college fee",
+        "fee per semester",
+        "what is the fee of each semester",
+        "what is the fees of each year",
+        "what is fee",
+        "what is the fees",
+        "how much is the fees",
+        "fees for first year",
+        "fees",
+        "about the fees",
+        "tell me something about the fees",
+        "What is the fees of hostel",
+        "how much is the fees",
+        "hostel fees",
+        "fees for AC room",
+        "fees for non-AC room",
+        "fees for Ac room for girls",
+        "fees for non-Ac room for girls",
+        "fees for Ac room for boys",
+        "fees for non-Ac room for boys"
+      ],
+      "responses": [
+        "For Fee detail visit <a target=\"_blank\" href=\"LINK\"> here</a>"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "location",
+      "patterns": [
+        "where is the college located",
+        "college is located at",
+        "where is college",
+        "where is college located",
+        "address of college",
+        "how to reach college",
+        "college location",
+        "college address",
+        "wheres the college",
+        "how can I reach college",
+        "whats is the college address",
+        "what is the address of college",
+        "address",
+        "location"
+      ],
+      "responses": [
+        "<a target=\"_blank\" href=\"ADD YOU GOOGLE MAP LINK HERE\"> here</a>"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "hostel",
+      "patterns": [
+        "hostel facility",
+        "hostel servive",
+        "hostel location",
+        "hostel address",
+        "hostel facilities",
+        "hostel fees",
+        "Does college provide hostel",
+        "Is there any hostel",
+        "Where is hostel",
+        "do you have hostel",
+        "do you guys have hostel",
+        "hostel",
+        "hostel capacity",
+        "what is the hostel fee",
+        "how to get in hostel",
+        "what is the hostel address",
+        "how far is hostel from college",
+        "hostel college distance",
+        "where is the hostel",
+        "how big is the hostel",
+        "distance between college and hostel",
+        "distance between hostel and college"
+      ],
+      "responses": [
+        "For hostel detail visit <a target=\"_blank\" href=\"ADD YOUR HOSTEL DETAIL PDF LINK OR ANY INFORMATION LINK OR ADD YOU OWN ANSWERS\"> here</a>"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "event",
+      "patterns": [
+        "events organised",
+        "list of events",
+        "list of events organised in college",
+        "list of events conducted in college",
+        "What events are conducted in college",
+        "Are there any event held at college",
+        "Events?",
+        "functions",
+        "what are the events",
+        "tell me about events",
+        "what about events"
+      ],
+      "responses": [
+        "For event detail visit <a target=\"_blank\" href=\"ADD YOUR FUNCTIONS LINK OR YOUR OWN RESPONSE\"> here</a>"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "document",
+      "patterns": [
+        "document to bring",
+        "documents needed for admision",
+        "documents needed at the time of admission",
+        "documents needed during admission",
+        "documents required for admision",
+        "documents required at the time of admission",
+        "documents required during admission",
+        "What document are required for admission",
+        "Which document to bring for admission",
+        "documents",
+        "what documents do i need",
+        "what documents do I need for admission",
+        "documents needed"
+      ],
+      "responses": [
+        "To know more about document required visit <a target=\"_blank\" href=\"ADD LINK OF ADMISSION GUIDANCE DOCUMENT FROM YOUR UNIVERSITY WEBSITE\"> here</a>"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "floors",
+      "patterns": [
+        "Can you tell me about how tall is uni's college of engineering college building?",
+        "Give me some details on floors in college please",
+        "What do you know about floors?",
+        "Can you tell me about size of campus?",
+        "I have a question about how tall is uni's college of engineering college building",
+        "Can you tell me about floors in college?",
+        "Can you tell me about floors?",
+        "What do you know about building size?",
+        "I have a question about how many floors does college have",
+        "What do you know about how many floors does college have?",
+        "What do you know about how tall is uni's college of engineering college building?",
+        "What do you know about floors in college?",
+        "Give me some details on how tall is uni's college of engineering college building please",
+        "I have a question about size of campus",
+        "floors in college"
+      ],
+      "responses": [
+        "My College has total 2 floors "
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "syllabus",
+      "patterns": [
+        "I have a question about what is it syllabus",
+        "Syllabus for IT",
+        "What is next lecture",
+        "Give me some details on syllabus for it please",
+        "I have a question about syllabus",
+        "What do you know about syllabus?",
+        "Can you tell me about what is next lecture?",
+        "Can you tell me about syllabus for it?",
+        "What do you know about what is the information technology syllabus?",
+        "what is IT syllabus",
+        "I have a question about timetable",
+        "What do you know about timetable?",
+        "what is the Information Technology syllabus",
+        "Give me some details on what is next lecture please",
+        "Can you tell me about what is it syllabus?"
+      ],
+      "responses": [
+        "Timetable provide direct to the students OR To know about syllabus visit <a target=\"_blank\" href=\"TIMETABLE LINK\"> here</a>"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "library",
+      "patterns": [
+        "is there any library",
+        "library facility",
+        "library facilities",
+        "do you have library",
+        "does the college have library facility",
+        "college library",
+        "where can i get books",
+        "book facility",
+        "Where is library",
+        "Library",
+        "Library information",
+        "Library books information",
+        "Tell me about library",
+        "how many libraries"
+      ],
+      "responses": [
+        "There is one huge and spacious library.timings are 8am to 6pm and for more visit <a target=\"blank\" href=\"ADD LIBRARY DETAIL LINK\">here</a>"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "canteen",
+      "patterns": [
+        "food facilities",
+        "canteen facilities",
+        "canteen facility",
+        "is there any canteen",
+        "Is there a cafetaria in college",
+        "Does college have canteen",
+        "Where is canteen",
+        "where is cafetaria",
+        "canteen",
+        "Food",
+        "Cafetaria"
+      ],
+      "responses": [
+        "Our university has canteen with variety of food available"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "menu",
+      "patterns": [
+        "I have a question about food in canteen",
+        "What do you know about what is available in college canteen?",
+        "I have a question about food variety",
+        "What do you know about what foods can we get in college canteen?",
+        "I have a question about what is there to eat?",
+        "What is there to eat?",
+        "Can you tell me about whats there on menu?",
+        "I have a question about what foods can we get in college canteen",
+        "what is available in college canteen",
+        "I have a question about what is available in college canteen",
+        "What do you know about food in canteen?",
+        "Give me some details on food menu please",
+        "What do you know about food menu?",
+        "Can you tell me about what is there to eat??",
+        "Give me some details on what is available in college canteen please"
+      ],
+      "responses": [
+        "we serve Franky, Locho, Alu-puri, Kachori, Khavsa, Thaali and many more on menu"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "placement",
+      "patterns": [
+        "Give me some details on about placement please",
+        "Give me some details on which companies visit in college please",
+        "Can you tell me about recruitment?",
+        "I have a question about package",
+        "I have a question about companies visit",
+        "Give me some details on companies visit please",
+        "Can you tell me about placement?",
+        "I have a question about recruitment",
+        "About placement",
+        "I have a question about what is college placement",
+        "I have a question about what is average package",
+        "I have a question about companies",
+        "Can you tell me about companies?",
+        "Give me some details on companies please",
+        "Give me some details on placement please"
+      ],
+      "responses": [
+        "To know about placement visit <a target=\"_blank\" href=\"PLACEMENT INFORMATION LINK FROM YOUR UNIVERSITY WEBSITE IF THEY HAVE\">here</a>"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "principal",
+      "patterns": [
+        "Where is principal's office",
+        "What do you know about name of principal?",
+        "I have a question about principal name",
+        "What do you know about what is the name of principal?",
+        "Can you tell me about who is college principal?",
+        "What do you know about where is principal's office?",
+        "Can you tell me about principal name?",
+        "Can you tell me about what is the name of principal?",
+        "What do you know about whatv is the principal name?",
+        "What do you know about who is college principal?",
+        "Can you tell me about name of principal?",
+        "Give me some details on whatv is the principal name please",
+        "what is the name of principal",
+        "I have a question about who is college principal",
+        "I have a question about whatv is the principal name"
+      ],
+      "responses": [
+        "XYZ is college principal and if you need any help then call your branch hod first.That is more appropriate"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "sem",
+      "patterns": [
+        "exam dates",
+        "exam schedule",
+        "When is semester exam",
+        "Semester exam timetable",
+        "sem",
+        "semester",
+        "exam",
+        "when is exam",
+        "exam timetable",
+        "exam dates",
+        "when is semester"
+      ],
+      "responses": [
+        "Here is the Academic Calendar  <a target=\"_blank\" href=\"YOUR ACADEMIC CALENDER\">website</a>"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "admission",
+      "patterns": [
+        "I have a question about admission process",
+        "How to take admission in your college",
+        "Can you tell me about admission?",
+        "I have a question about what is the process of admission",
+        "I have a question about how to take admission in your college",
+        "I have a question about what is the admission process",
+        "admission",
+        "Can you tell me about admission process?",
+        "Can you tell me about what is the process for admission?",
+        "What do you know about what is the process for admission?",
+        "Give me some details on admission please",
+        "admission process",
+        "I have a question about admission",
+        "Can you tell me about what is the process of admission?",
+        "Can you tell me about how to take admission in your college?"
+      ],
+      "responses": [
+        "Application can also be submitted online through the Unversity's  <a target=\"_blank\" href=\"LINK OF ADMISSION DOCUMENT\">website</a>"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "scholarship",
+      "patterns": [
+        "scholarship",
+        "Is scholarship available",
+        "scholarship engineering",
+        "scholarship it",
+        "scholarship ce",
+        "scholarship mechanical",
+        "scholarship civil",
+        "scholarship chemical",
+        "scholarship for AI/ML",
+        "available scholarships",
+        "scholarship for computer engineering",
+        "scholarship for IT engineering",
+        "scholarship for mechanical engineering",
+        "scholarship for civil engineering",
+        "scholarship for chemical engineering",
+        "list of scholarship",
+        "comps scholarship",
+        "IT scholarship",
+        "mechanical scholarship",
+        "civil scholarship",
+        "chemical scholarship",
+        "automobile scholarship",
+        "first year scholarship",
+        "second year scholarship",
+        "third year scholarship",
+        "fourth year scholarship"
+      ],
+      "responses": [
+        "Many government scholarships are supported by our university. For details and updates visit <a target=\"_blank\" href=\"(SCHOLARSHIP DETAILS LINK)\">here</a>"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "facilities",
+      "patterns": [
+        "Can you tell me about facilities?",
+        "I have a question about what facilities college provide",
+        "Can you tell me about what facilities college provide?",
+        "What do you know about college facility?",
+        "What do you know about facilities provided?",
+        "What do you know about what facilities college provide?",
+        "facilities provided",
+        "What do you know about facilities?",
+        "College facility",
+        "Give me some details on what are college facilities please",
+        "What do you know about what are college facilities?",
+        "What are college facilities",
+        "I have a question about facilities provided",
+        "I have a question about facilities",
+        "facilities"
+      ],
+      "responses": [
+        "Our university's Engineering department provides fully AC Lab with internet connection, smart classroom, Auditorium, library,canteen"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "college intake",
+      "patterns": [
+        "I have a question about seats",
+        "I have a question about what is college intake",
+        "Give me some details on number of seats per branch please",
+        "I have a question about max number of students",
+        "Give me some details on what is college intake please",
+        "I have a question about how many stundent are taken in each branch",
+        "Can you tell me about max number of students?",
+        "Can you tell me about how many stundent are taken in each branch?",
+        "Give me some details on how many stundent are taken in each branch please",
+        "What do you know about seat allotment?",
+        "how many stundent are taken in each branch",
+        "Can you tell me about seat allotment?",
+        "Give me some details on seat allotment please",
+        "What do you know about how many stundent are taken in each branch?",
+        "What do you know about max number of students?"
+      ],
+      "responses": [
+        "For IT, Computer and extc 60 per branch and seat may be differ for different department."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "uniform",
+      "patterns": [
+        "Give me some details on college dress code please",
+        "I have a question about is there any uniform",
+        "Can you tell me about is there any uniform?",
+        "I have a question about uniform",
+        "I have a question about college dresscode",
+        "What do you know about what about uniform?",
+        "I have a question about what is the uniform",
+        "Can you tell me about uniform?",
+        "Give me some details on uniform please",
+        "Give me some details on can we wear casuals please",
+        "Give me some details on what is the uniform please",
+        "Does college have an uniform",
+        "Can you tell me about what is the uniform?",
+        "Is there any uniform",
+        "Give me some details on is there any uniform please"
+      ],
+      "responses": [
+        "ENTER YOUR OWN UNIVERSITY UNIFORM CIRCULER"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "committee",
+      "patterns": [
+        "Give me some details on committee please",
+        "What do you know about different committee in college?",
+        "Can you tell me about give me committee details?",
+        "Give me some details on are there any committee in college please",
+        "I have a question about committee",
+        "Are there any committee in college",
+        "Give me some details on different committee in college please",
+        "Give me some details on give me committee details please",
+        "Give me some details on what are the different committe in college please",
+        "What do you know about give me committee details?",
+        "I have a question about what are the different committe in college",
+        "What do you know about how many committee are there in college?",
+        "Can you tell me about how many committee are there in college?",
+        "what are the different committe in college",
+        "Give me some details on how many committee are there in college please"
+      ],
+      "responses": [
+        "For the various committe in college contact this number: ADD NUMBER"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "swear",
+      "patterns": [
+        "shut up",
+        "Give me some details on hell please",
+        "Give me some details on fucker please",
+        "Can you tell me about fuck?",
+        "idiot",
+        "Give me some details on stupid please",
+        "I have a question about asshole",
+        "Give me some details on dumb ass please",
+        "Give me some details on asshole please",
+        "Can you tell me about hell?",
+        "I have a question about stupid",
+        "What do you know about dumb ass?",
+        "I have a question about fucker",
+        "Can you tell me about dumb ass?",
+        "dumb ass"
+      ],
+      "responses": [
+        "please use appropriate language",
+        "Maintaining decency would be appreciated"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "vacation",
+      "patterns": [
+        "holidays",
+        "when will semester starts",
+        "when will semester end",
+        "when is the holidays",
+        "list of holidays",
+        "Holiday in these year",
+        "holiday list",
+        "about vacations",
+        "about holidays",
+        "When is vacation",
+        "When is holidays",
+        "how long will be the vacation"
+      ],
+      "responses": [
+        "Academic calender is given to you by your class-soordinators after you join your respective classes"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "sports",
+      "patterns": [
+        "What do you know about please provide sports and games information?",
+        "Give me some details on sports facilities please",
+        "I have a question about sports and games",
+        "Can you tell me about please provide sports and games information?",
+        "Can you tell me about give sports details?",
+        "sports facilities",
+        "What do you know about sports facilities?",
+        "I have a question about please provide sports and games information",
+        "I have a question about sports facilities",
+        "What do you know about information about sports?",
+        "I have a question about sports activities",
+        "sports infrastructure",
+        "I have a question about sports infrastructure",
+        "Can you tell me about sports and games?",
+        "sports and games"
+      ],
+      "responses": [
+        "Our university encourages all-round development of students and hence provides sports facilities in the campus. For more details visit<a target=\"_blank\" href=/\"(LINK IF HAVE)\">here</a>"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "salutaion",
+      "patterns": [
+        "okk",
+        "okie",
+        "nice work",
+        "well done",
+        "good job",
+        "thanks for the help",
+        "Thank You",
+        "its ok",
+        "Thanks",
+        "Good work",
+        "k",
+        "ok",
+        "okay"
+      ],
+      "responses": [
+        "I am glad I helped you",
+        "welcome, anything else i can assist you with?"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "task",
+      "patterns": [
+        "Can you tell me about what are the thing you can do?",
+        "why i should use you",
+        "Can you tell me about what can you do?",
+        "I have a question about things you can do",
+        "What do you know about why i should use you?",
+        "I have a question about why i should use you",
+        "what can you do",
+        "What do you know about things you can do?",
+        "I have a question about what are the thing you can do",
+        "I have a question about what can you do",
+        "Can you tell me about how u can help me?",
+        "things you can do",
+        "Give me some details on what can u do for me please",
+        "Can you tell me about why i should use you?",
+        "Give me some details on what are the thing you can do please"
+      ],
+      "responses": [
+        "I can answer to low-intermediate questions regarding college",
+        "You can ask me questions regarding college, and i will try to answer them"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "recommend_course",
+      "patterns": [
+        "Any course you recommend?",
+        "Thinking about data science, any ideas?",
+        "Do you have some good suggestions?",
+        "Find me a good online course.",
+        "Suggest a course.",
+        "What should I study next?",
+        "I need a good course on data science.",
+        "Do you have course suggestions?",
+        "I want to study artificial intelligence.",
+        "Please recommend a course for me.",
+        "Got any course suggestions?",
+        "Suggest a class I can take.",
+        "Give me a course suggestion.",
+        "What course should I take?",
+        "Help me pick a course.",
+        "Tell me a useful course to learn.",
+        "Is there any course for Python?",
+        "Which course suits me?",
+        "Can you suggest a good class?",
+        "Can you recommend me a course?",
+        "Do you know a good course for AI?",
+        "Recommend me something interesting.",
+        "Help me find a course.",
+        "Looking for Python classes.",
+        "I'm interested in learning AI.",
+        "I'm looking for a course.",
+        "I want to study but don’t know what.",
+        "I'm looking to upskill.",
+        "I'm interested in machine learning.",
+        "I want to learn something new.",
+        "I'm bored, want to learn something.",
+        "I'm looking for something to learn.",
+        "Want to start a new subject.",
+        "Can you help me pick a class?",
+        "Recommend a course to me.",
+        "Any online courses you know?",
+        "Give me some learning recommendations."
+      ],
+      "responses": [
+        "Sure! Tell me what topic you're interested in.",
+        "I'd love to help. What kind of course are you looking for?",
+        "Let me know your area of interest, and I'll find some courses."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "uncertain_feeling",
+      "patterns": [
+        "I don't know what to learn",
+        "I'm lost",
+        "I feel confused",
+        "Can you help me choose?",
+        "No idea what to study",
+        "I'm unsure",
+        "I need help deciding",
+        "I'm stuck",
+        "I can't decide what to learn",
+        "I'm feeling overwhelmed"
+      ],
+      "responses": [
+        "Don't worry. I can recommend some popular courses suitable for beginners to you. Tell me the direction you are interested in ~"
+      ]
+    },
+    {
+      "tag": "ragging",
+      "patterns": [
+        "ragging",
+        "is ragging practice active in college",
+        "does college have any antiragging facility",
+        "is there any ragging cases",
+        "is ragging done here",
+        "ragging against",
+        "antiragging facility",
+        "ragging juniors",
+        "ragging history",
+        "ragging incidents"
+      ],
+      "responses": [
+        "We are Proud to tell you that our college provides ragging free environment, and we have strict rules against ragging"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "emotional_support",
+      "patterns": [
+        "I'm feeling down",
+        "I'm anxious",
+        "I'm not okay",
+        "Feeling overwhelmed with study",
+        "Too much pressure",
+        "I need motivation",
+        "Feeling stressed",
+        "Can you cheer me up?",
+        "I'm frustrated",
+        "I feel lost"
+      ],
+      "responses": [
+        "You're not alone. Learning can be tough, but I'm here for you 😊",
+        "Take a deep breath. I believe in you!",
+        "Remember, every expert was once a beginner. Let's take one step at a time.",
+        "You're doing great. Want me to recommend some light courses?"
+      ]
+    },
+    {
+      "tag": "other_inquiry",
+      "patterns": [
+        "Give me some details on hod name please",
+        "I have a question about where is computer hod",
+        "Can you tell me about where is hod?",
+        "Can you tell me about infrastructure?",
+        "What do you know about who is computer hod?",
+        "Can you tell me about how is college infrastructure?",
+        "I have a question about who is computer hod",
+        "I have a question about how is college infrastructure",
+        "Can you tell me about name of it hod?",
+        "Give me some details on will you marry me please",
+        "I have a question about extc hod",
+        "Give me some details on i love you please",
+        "I have a question about hod name",
+        "Can you tell me about computer hod?",
+        "Give me some details on how is college infrastructure please",
+        "it hod",
+        "Give me some details on it hod please",
+        "What do you know about who is the hod?",
+        "What do you know about it hod?",
+        "What do you know about extc hod?"
+      ],
+      "responses": [
+        "我不确定你的具体问题，但我可以试着帮你找资料。",
+        "这是关于校园的一般问题，对吧？",
+        "让我看看是否能找到相关内容。"
+      ]
+    }
+  ]
+}
