@@ -3,14 +3,14 @@ from sentence_transformers import SentenceTransformer
 from langdetect import detect
 from sklearn.metrics.pairwise import cosine_similarity
 
-# 1. Load course data
+
 df_courses = pd.read_csv("CourseraDataset-Clean.csv")
 
-# 2. Print column structure (for debugging)
+
 print(df_courses.columns)
 print(df_courses.head())
 
-# 3. Keep only required columns
+# 3. Keep needed columns
 columns_needed = [
     'Course Title',
     'Modules',
@@ -23,24 +23,24 @@ columns_needed = [
     'Number of Review'
 ]
 course_data = df_courses[columns_needed].copy()
-# 4. Remove duplicates
+# Remove duplicates
 course_data.drop_duplicates(subset='Course Title', inplace=True)
-# 5. Remove missing values
+# Remove missing values
 course_data.dropna(inplace=True)
-# 6. Reset index
+# Reset index
 course_data.reset_index(drop=True, inplace=True)
 
-# 7. English language detection
+
 def is_english(text):
     try:
         return detect(text) == 'en'
     except:
         return False
 
-# Filter only English courses
+# only English courses
 df_english = course_data[course_data['Course Title'].apply(is_english)]
 
-# 8. Print filtered data (for debugging)
+
 print("Number of English courses after filtering:", len(df_english))
 print(df_english.sample(3))
 
@@ -50,24 +50,24 @@ df_english['semantic_text'] = (
     df_english['What you will learn'].fillna('')
 )
 
-# 9. Initialize BERT model
+#BERT model
 model = SentenceTransformer('all-MiniLM-L6-v2')
 
-# 10. Convert semantic_text to list
+# Convert semantic_text to list
 semantic_texts = df_english['semantic_text'].tolist()
 
-# 11. Encode all courses as semantic vectors
+# Encode all courses as semantic vectors
 course_embeddings = model.encode(semantic_texts, show_progress_bar=True)
 
 def recommend_courses(user_input, preferred_level=None, top_k=5):
     if not user_input:
         return pd.DataFrame(columns=["Course Title", "Rating", "Level", "Keyword", "score", "similarity"])
-    # 1. Join interest text and vectorize
+    #Join interest text and vectorize
     input_text = " ".join(user_input).lower()
     user_vec = model.encode([input_text])
     df_english['similarity'] = cosine_similarity(user_vec, course_embeddings)[0]
 
-    # 2. Keyword match score (partial match)
+    # Keyword match score (partial match)
     def keyword_match_score(course_keyword):
         if pd.isna(course_keyword):
             return 0
@@ -86,10 +86,8 @@ def recommend_courses(user_input, preferred_level=None, top_k=5):
             score += 0.05
         return score
 
-    # 4. Apply scoring
     df_english['score'] = df_english.apply(score, axis=1)
 
-    # 5. Sort and recommend
     recommendations = df_english.sort_values(by='score', ascending=False).head(top_k)
     return recommendations
 
@@ -111,7 +109,7 @@ def show_recommendation_table(recommendations):
         "Rating", "Number of Reviews", "Level", "Duration",
     ])
 
-    for _, row in recommendations.iterrows():
+    for i, (_, row) in enumerate(recommendations.iterrows(), 1):
         result_table = result_table.append({
             "Course Title": row['Course Title'],
             "Score": round(row['score'], 3),
@@ -124,5 +122,8 @@ def show_recommendation_table(recommendations):
             "Duration": row['Duration to complete (Approx.)'],
         }, ignore_index=True)
 
+    # Reset index to start from 1 instead of 0
+    result_table.index = result_table.index + 1
+    
     return result_table
 

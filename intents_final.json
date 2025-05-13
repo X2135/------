@@ -12,7 +12,23 @@
         "how are ya",
         "heyy",
         "whatsup",
-        "??? ??? ??"
+        "??? ??? ??",
+        "Hey!",
+        "Good morning!",
+        "Good afternoon!",
+        "Good evening!",
+        "Greetings!",
+        "Nice to meet you.",
+        "Hey bot!",
+        "Hi, how are you?",
+        "Hello, assistant.",
+        "Yo!",
+        "Hi!",
+        "Hey, how's it going?",
+        "Hello, anyone there?",
+        "Hi, can you help me?",
+        "Hey, what's new?",
+        "Hello, friend!"
       ],
       "responses": [
         "Hello!",
@@ -35,7 +51,22 @@
         "talk to you later",
         "ttyl",
         "i got to go",
-        "gtg"
+        "gtg",
+        "See you next time.",
+        "I'm leaving now.",
+        "Thanks, bye!",
+        "Have a nice day.",
+        "Bye bye!",
+        "See you!",
+        "Take care.",
+        "I'm off.",
+        "Later!",
+        "Gotta go.",
+        "Farewell.",
+        "See you around.",
+        "Bye for now.",
+        "Talk later.",
+        "Peace out!"
       ],
       "responses": [
         "Sad to see you go :(",
@@ -732,7 +763,27 @@
         "Good work",
         "k",
         "ok",
-        "okay"
+        "okay",
+        "Best regards.",
+        "Sincerely.",
+        "Kind regards.",
+        "Yours truly.",
+        "Respectfully.",
+        "Warm regards.",
+        "With appreciation.",
+        "Cordially.",
+        "Yours faithfully.",
+        "With best wishes.",
+        "All the best.",
+        "With respect.",
+        "Yours sincerely.",
+        "With gratitude.",
+        "Yours respectfully.",
+        "With kind regards.",
+        "Yours cordially.",
+        "With warmest regards.",
+        "Yours appreciatively.",
+        "With sincere thanks."
       ],
       "responses": [
         "I am glad I helped you",
@@ -794,7 +845,7 @@
         "Looking for Python classes.",
         "I'm interested in learning AI.",
         "I'm looking for a course.",
-        "I want to study but don’t know what.",
+        "I want to study but don't know what.",
         "I'm looking to upskill.",
         "I'm interested in machine learning.",
         "I want to learn something new.",
@@ -825,7 +876,23 @@
         "I need help deciding",
         "I'm stuck",
         "I can't decide what to learn",
-        "I'm feeling overwhelmed"
+        "I'm feeling overwhelmed",
+        "I'm not sure what to do.",
+        "I need some guidance.",
+        "I'm uncertain about my choices.",
+        "I can't decide.",
+        "I'm unsure about my future.",
+        "I need help making a decision.",
+        "I'm feeling indecisive.",
+        "I don't know what course to pick.",
+        "I'm not confident in my choices.",
+        "I feel overwhelmed by options.",
+        "I need some advice.",
+        "I'm not sure which path to take.",
+        "I feel hesitant.",
+        "I'm doubting myself.",
+        "I need clarity.",
+        "I'm feeling unsure."
       ],
       "responses": [
         "Don't worry. I can recommend some popular courses suitable for beginners to you. Tell me the direction you are interested in ~"
@@ -849,27 +916,6 @@
         "We are Proud to tell you that our college provides ragging free environment, and we have strict rules against ragging"
       ],
       "context_set": ""
-    },
-    {
-      "tag": "emotional_support",
-      "patterns": [
-        "I'm feeling down",
-        "I'm anxious",
-        "I'm not okay",
-        "Feeling overwhelmed with study",
-        "Too much pressure",
-        "I need motivation",
-        "Feeling stressed",
-        "Can you cheer me up?",
-        "I'm frustrated",
-        "I feel lost"
-      ],
-      "responses": [
-        "You're not alone. Learning can be tough, but I'm here for you 😊",
-        "Take a deep breath. I believe in you!",
-        "Remember, every expert was once a beginner. Let's take one step at a time.",
-        "You're doing great. Want me to recommend some light courses?"
-      ]
     },
     {
       "tag": "other_inquiry",
