@@ -10,6 +10,7 @@ import joblib
 from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
 import matplotlib.pyplot as plt
 import seaborn as sns
+import numpy as np
 
 with open("intents_final.json", "r", encoding="utf-8") as f:
     data = json.load(f)
@@ -53,29 +54,45 @@ print("Model and vectorizer have been saved as intent_classifier.pkl and vectori
 
 # Confusion Matrix
 def plot_confusion_matrix(classifier, X_test_vec, y_test):
+    # Only retain the main categories
+    main_labels = [
+        "recommend_course", "uncertain_feeling", "greeting",
+        "goodbye", "name", "other_inquiry"
+    ]
     y_pred = classifier.predict(X_test_vec)
-    labels = classifier.classes_
-    cm = confusion_matrix(y_test, y_pred, labels=labels)
-    plt.figure(figsize=(18, 16))  
-    sns.set(font_scale=1.3)
+
+    label_indices = [i for i, l in enumerate(classifier.classes_) if l in main_labels]
+    filtered_labels = [classifier.classes_[i] for i in label_indices]
+
+    y_test_main = [y for y in y_test if y in main_labels]
+    y_pred_main = [y for i, y in enumerate(y_pred) if y_test.iloc[i] in main_labels]
+
+    cm = confusion_matrix(y_test_main, y_pred_main, labels=main_labels)
+
+    plt.figure(figsize=(6, 5))
+    sns.set(font_scale=1.1)
     ax = sns.heatmap(
         cm,
         annot=True,
         fmt='d',
-        cmap='YlGnBu',
-        xticklabels=labels,
-        yticklabels=labels,
-        cbar=True,
-        linewidths=0.5,
+        cmap='Blues',
+        xticklabels=main_labels,
+        yticklabels=main_labels,
+        cbar=False,
+        linewidths=0.3,
         linecolor='gray',
         annot_kws={"size": 12, "weight": "bold", "color": "black"}
     )
-    plt.title('Confusion Matrix for Intent Recognition', fontsize=22, weight='bold')
-    plt.xlabel('Predicted Label', fontsize=18)
-    plt.ylabel('True Label', fontsize=18)
-    plt.xticks(rotation=45, ha='right', fontsize=12)
-    plt.yticks(rotation=0, fontsize=12)
-    plt.tight_layout()
+    for t in ax.texts:
+        if t.get_text() == '0':
+            t.set_text('')
+    plt.title('Confusion Matrix (Main Intents)', fontsize=15, weight='bold', pad=10)
+    plt.xlabel('Predicted', fontsize=12)
+    plt.ylabel('True', fontsize=12)
+    plt.xticks(rotation=30, ha='right', fontsize=11)
+    plt.yticks(rotation=0, fontsize=11)
+    plt.tight_layout(pad=0.5)
+    plt.savefig('confusion_matrix_main.png', dpi=300, bbox_inches='tight')
     plt.show()
 
 plot_confusion_matrix(classifier, X_test_vec, y_test)
@@ -85,20 +102,38 @@ report_dict = classification_report(y_test, y_pred, output_dict=True)
 report_df = pd.DataFrame(report_dict).transpose()
 display_df = report_df[['precision', 'recall', 'f1-score', 'support']].round(2)
 
-fig, ax = plt.subplots(figsize=(12, len(display_df)*0.5 + 2))
+fig, ax = plt.subplots(figsize=(6.5, min(0.32 * len(display_df) + 1.2, 10)))
 ax.axis('off')
+
+# Beautify table: white background, bold headers, grid lines, compact columns
+colors = [["#f8f8f8"]*len(display_df.columns) for _ in range(len(display_df))]
 tbl = ax.table(
     cellText=display_df.values,
     colLabels=display_df.columns,
     rowLabels=display_df.index,
     cellLoc='center',
-    loc='center'
+    loc='center',
+    cellColours=colors
 )
 tbl.auto_set_font_size(False)
-tbl.set_fontsize(12)
-tbl.scale(1.2, 1.2)
-plt.title('Classification Report', fontsize=16, weight='bold')
-plt.tight_layout()
+tbl.set_fontsize(9)
+tbl.scale(0.95, 0.95)
+
+# Bold header and compact
+for key, cell in tbl.get_celld().items():
+    row, col = key
+    if row == 0 or col == -1:
+        cell.set_text_props(weight='bold', color='#222')
+    if row == 0:
+        cell.set_facecolor('#e0e0e0')
+    if col == -1:
+        cell.set_facecolor('#e0e0e0')
+    cell.set_linewidth(0.6)
+    cell.set_edgecolor('#888')
+    cell.PAD = 0.01
+
+plt.title('Intent Classification Report', fontsize=14, weight='bold', pad=10)
+plt.tight_layout(pad=0.2)
 plt.savefig('classification_report_table.png', dpi=300, bbox_inches='tight')
 plt.show()
 

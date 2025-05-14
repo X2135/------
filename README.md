@@ -4,119 +4,134 @@
 
 This is an intelligent course recommendation chatbot that integrates natural language processing and recommendation systems. The system can understand the intentions input by users and, based on the keywords provided by users, recommend the most suitable courses by using semantic matching and multi-dimensional scoring algorithms. The project adopts modern NLP technology and machine learning methods, providing an interactive course recommendation experience.
 
+---
+## ✨ Key Features
 
-## Core Functions 
+* **Natural-language dialogue** – chat style interface built with Streamlit.
+* **Intent Recognition** – TF-IDF + Linear-SVM with probability calibration (`intent_classifier.pkl`).
+* **Course Recommendation** – semantic matching using `sentence-transformers/all-MiniLM-L6-v2`, keyword boosting, rating & review heuristics.
+* **Explainable Output** – every recommendation is accompanied by a human-readable reason.
+* **Session Memory** – Streamlit *session_state* stores chat history, keywords and results.
+* **One-click Testing** – `recommendation_test.py` generates tables / figures for your report.
+* **Visual Evaluation** – confusion matrix & classification report automatically exported as PNG.
 
-- **Intent Recognition**: Using TF-IDF vectorization and Support Vector Machine (SVM) classifier to recognize user intents (such as greetings, farewells, course recommendations, etc.)
-- **Semantic Understanding**: Utilizing pre-trained BERT model (all-MiniLM-L6-v2) for semantic representation and matching
-- **Course Recommendation**: Multi-dimensional scoring system based on semantic similarity, keyword matching, course ratings, and review count
-- **Recommendation Explanation**: Providing reasoning for each recommended course (such as high semantic match, high rating, etc.)
-- **Interactive Interface**: User-friendly interface based on Streamlit, supporting natural language dialogue
-- **Session State Management**: Maintaining conversation history and context for a coherent user experience
+---
+## 🗂️ Repository Layout
 
-## Technical Architecture
+```
+├── streamlit_use.py               # Web UI / dialogue loop
+├── recommendation.py              # Recommendation logic
+├── recommendation_test.py         # Batch test & visualisation script
+├── intension_recognition.py       # Train intent model + evaluation plots
+├── intent_classifier.pkl          # Trained SVM intent model
+├── vectorizer.pkl                 # Trained TF-IDF vectoriser
+├── CourseraDataset-Clean.csv      # Course dataset (cleaned)
+├── intents_final.json             # Intent training data
+├── classification_report_table.png
+├── confusion_matrix_main.png
+└── all_recommendations_table.png
+```
 
-### Component Structure
-- **Intent Recognition Model**: Identifies user input intentions, such as greetings, course recommendations, uncertainty, etc.
-- **Recommendation Engine**: Converts user keywords into semantic vectors and matches them with course content
-- **User Interface**: Interactive chat interface based on Streamlit
+---
+## 🖼️ System Architecture
 
-### Data Flow
-1. User inputs questions or needs in the chat box
-2. System identifies user intent (using SVM model)
-3. Provides appropriate response or form based on intent
-4. After user inputs keywords, the system converts keywords into semantic vectors
-5. System calculates similarity between user vectors and course vectors
-6. Generates recommendation results considering multiple dimensions
-7. Displays recommended courses and explanations
+```mermaid
+flowchart TD
+    subgraph UI_Entry [UI & Entry]
+        A[streamlit_use.py\n(Web UI)]
+    end
 
-## File Structure Description
+    subgraph Intent
+        B[intension_recognition.py\n(Train)]
+        C(intent_classifier.pkl)
+        D(vectorizer.pkl)
+    end
 
-- **streamlit_use.py**: Main application file, implementing Streamlit interface and chat logic
-- **recommendation.py**: Core recommendation system logic, including semantic representation and course recommendation algorithms
-- **intension_recognition.py**: Intent recognition model training script
-- **intent_classifier.pkl**: Pre-trained intent classifier model
-- **vectorizer.pkl**: Pre-trained TF-IDF vectorizer
-- **intents_final.json**: Intent training dataset, modified based on the original dataset (https://www.kaggle.com/datasets/niraliivaghani/chatbot-dataset)
-- **CourseraDataset-Clean.csv**: Coursera course dataset (https://www.kaggle.com/datasets/elvinrustam/coursera-dataset?utm_source=chatgpt.com)
+    subgraph Recommender
+        E[recommendation.py]
+        F[CourseraDataset-Clean.csv]
+    end
 
-## Installation Guide
+    subgraph Test & Viz
+        G[recommendation_test.py]
+    end
 
-1. **Clone Repository**
-   ```bash
-   git clone <repository-url>
-   cd <project-directory>
-   ```
+    subgraph Artifacts
+        H[classification_report.png]
+        I[confusion_matrix.png]
+        J[all_recommendations.png]
+    end
 
-2. **Install Dependencies**
-   ```bash
-   pip install -r requirements.txt
-   ```
-   Main dependencies:
-   - streamlit
-   - scikit-learn
-   - sentence-transformers
-   - pandas
-   - joblib
-   - langdetect
+    B -->|train| C
+    B -->|train| D
+    C --> A
+    D --> A
+    A -->|keywords| E
+    F --> E
+    G --> E
+    G --> J
+    B --> H
+    B --> I
+```
 
-3. **Download Dataset** (if not included in the repository)
-   Ensure `CourseraDataset-Clean.csv` file is located in the project root directory
+---
+## 🚀 Installation
 
-## Usage Instructions
+```bash
+# 1. clone repo
+$ git clone <repo-url>
+$ cd SmartCourseChatbot
 
-### Launch Application
+# 2. create env (optional)
+$ python -m venv venv && source venv/bin/activate
+
+# 3. install deps
+$ pip install -r requirements.txt
+```
+*First run will download the 100 MB Sentence-Transformer model automatically.*
+
+---
+## Quick Start
+
+### Launch chatbot
 ```bash
 streamlit run streamlit_use.py
 ```
+Open the browser link (usually `http://localhost:8501`).  
+Type something like *"Can you recommend me a data-science course?"*.
 
-### Interact with the Chatbot
-1. Enter questions in the chat box, such as "Can you recommend me a course?"
-2. The system will recognize your intent and provide appropriate responses
-3. For course recommendation requests, input keywords for fields you're interested in
-4. Click the "Get Recommendations" button to get recommendations
-5. View the list of recommended courses and reasons for recommendation
+### Batch-generate evaluation figures
+```bash
+python recommendation_test.py      # saves PNG tables in project root
+```
 
-## Technical Implementation Details
+---
+## Evaluation Metrics
 
-### Intent Recognition Model
-- Using TF-IDF to extract text features (including unigrams and bigrams)
-- Using linear SVM classifier for intent classification
-- CalibratedClassifierCV provides probability output
+Intent model (93-sample test set):
+* Accuracy 0.88, macro-F1 0.88
+* Confusion-matrix and per-class report exported in `/`.
 
-### Recommendation System
-- Using BERT pre-trained model to convert course content and user input into semantic vectors
-- Using cosine similarity to calculate semantic matching
-- Scoring function considering multiple factors:
-  - Semantic similarity (main factor)
-  - Keyword matching
-  - Course rating (≥4.5 gets bonus)
-  - Review count (≥1000 gets bonus)
-  - User preference level matching
+Recommendation quality (manual sampling):
+* >90 % courses contain at least one user keyword.
+* Average rating ≥4.5 on recommended list.
 
-### Interface and User Experience
-- Building interactive interface using Streamlit
-- Session state management ensures conversation coherence
-- Form submission callback functions handle user input
-- Responsive recommendation result display
+---
+##  Retraining Intent Model
+```bash
+python intension_recognition.py    # retrains & overwrites *.pkl
+```
+Adjust `intents_final.json` to add new intents before retraining.
 
-## Extensions and Customization
+---
+## Customisation Tips
 
-### Adding New Intents
-1. Add new intent categories and examples in `intents_final.json`
-2. Run `intension_recognition.py` again to train the model
+* **New data source** – drop another CSV with the same columns and change the path in `recommendation.py`.
+* **Scoring weights** – tweak function `score()` in `recommendation.py`.
+* **UI wording** – edit messages in `streamlit_use.py`.
 
-### Optimizing Recommendation Algorithm
-Modify the scoring function in `recommendation.py` to adjust the weights of various factors or add new factors
+---
+## License & Citation
 
-### Dataset Update
-Replace or update the `CourseraDataset-Clean.csv` file, maintaining the same column structure
-
-## Developer
-Li
-
-This project is developed for academic research and educational purposes, suitable for learning and practicing computer science, natural language processing, and recommendation systems.
-
-## License
-
-This project is for academic and research purposes only. 
+This repository is released for academic & educational use only.  
+If you use the code or ideas, please cite the project. 
