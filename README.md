@@ -33,48 +33,6 @@ This is an intelligent course recommendation chatbot that integrates natural lan
 ```
 
 ---
-## 🖼️ System Architecture
-
-```mermaid
-flowchart TD
-    subgraph UI_Entry [UI & Entry]
-        A[streamlit_use.py\n(Web UI)]
-    end
-
-    subgraph Intent
-        B[intension_recognition.py\n(Train)]
-        C(intent_classifier.pkl)
-        D(vectorizer.pkl)
-    end
-
-    subgraph Recommender
-        E[recommendation.py]
-        F[CourseraDataset-Clean.csv]
-    end
-
-    subgraph Test & Viz
-        G[recommendation_test.py]
-    end
-
-    subgraph Artifacts
-        H[classification_report.png]
-        I[confusion_matrix.png]
-        J[all_recommendations.png]
-    end
-
-    B -->|train| C
-    B -->|train| D
-    C --> A
-    D --> A
-    A -->|keywords| E
-    F --> E
-    G --> E
-    G --> J
-    B --> H
-    B --> I
-```
-
----
 ## 🚀 Installation
 
 ```bash
